@@ -1,0 +1,2 @@
+colorama==0.4.6
+Telethon==1.34.0
