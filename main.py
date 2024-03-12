@@ -16,6 +16,12 @@ async def clean():
     os.system('cls' if os.name == 'nt' else 'clear')
 
 
+async def check():
+    P = [Style.BRIGHT, Style.RESET_ALL, Fore.GREEN]
+    name = input(f"{P[0]}{P[-1]}Type The User-Name or The Full-Name of Chat That You Want To Connect To: {P[1]}")
+    return name
+
+
 async def contacts():
     async with TelegramClient('Terminally', api_id, api_hash) as client:
         contact = await client(functions.contacts.GetContactsRequest(hash=0))
@@ -111,12 +117,6 @@ async def refresh(client, username: str, limit: int, show: bool):
             file.write(f"ERROR: {e} TIME: {time.strftime("|%m/%d/%Y | %H:%M:%S|")}\n")
         print("Something Went Wrong! Check The log.txt File For More Details.")
         exit()
-
-
-async def check():
-    P = [Style.BRIGHT, Style.RESET_ALL, Fore.GREEN]
-    name = input(f"{P[0]}{P[-1]}Type The User-Name or The Full-Name of Chat That You Want To Connect To: {P[1]}")
-    return name
 
 
 async def delete_message(client, msg_id):
